@@ -17,7 +17,7 @@ public class Controller {
     private final StatusRandomService statusRandomService;
 
     @GetMapping(produces = MediaType.IMAGE_JPEG_VALUE)
-    public @ResponseBody byte[] getRandomGiphy() {
+    public @ResponseBody byte[] getRandomHttpStatusFunnyCatPicture() {
         return restTemplate.getForObject(String.format("https://http.cat/%s", statusRandomService.getRandomStatus()), byte[].class);
     }
 }
