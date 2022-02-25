@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'ru.sputnik'
+version = '0.0.1'
+sourceCompatibility = '11'
+
+var lombok = '1.18.20'
+var spring = '2.6.3'
+var springWeb = '5.3.15'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compileOnly "org.projectlombok:lombok:${lombok}"
+	annotationProcessor "org.projectlombok:lombok:${lombok}"
+
+	implementation "org.springframework.boot:spring-boot-starter-web:${spring}"
+	implementation "org.springframework.boot:spring-boot-starter:${spring}"
+	implementation "org.springframework:spring-web:${springWeb}"
+
+
+	testImplementation "org.springframework.boot:spring-boot-starter-test:${spring}"
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
